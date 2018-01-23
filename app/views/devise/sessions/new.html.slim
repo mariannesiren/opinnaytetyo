@@ -4,8 +4,8 @@
       h1.page-title Kirjaudu sisään
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .child-margins-y-0-5.margin-0-5.margin-top
-          = f.input :email, required: false, autofocus: true
-          = f.input :password, required: false
+          = f.input :email, required: false, autofocus: true, label: "Sähköposti"
+          = f.input :password, required: false, label: "Salasana"
 
           = f.button :submit, "Kirjaudu sisään", class: "btn--primary"
       .margin-1.margin-top

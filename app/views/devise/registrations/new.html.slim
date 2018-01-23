@@ -1,13 +1,13 @@
-h2
-  | Sign up
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-    = f.input :first_name, required: true
-    = f.input :last_name, required: true
-    = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-    = f.input :password_confirmation, required: true
-  .form-actions
-    = f.button :submit, "Rekisteröidy"
-= render "devise/shared/links"
+.container.margin-1.margin-top
+  .row
+    .col-xs-12.col-m-offset-2.col-m-8.col-l-offset-3.col-l-6
+      h1.page-title Rekisteröidy
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.error_notification
+        .child-margins-y-0-5.margin-0-5.margin-top
+          = f.input :email, required: true, autofocus: true, label: "Sähköposti"
+          = f.input :first_name, required: true, label: "Etunimi"
+          = f.input :last_name, required: true, label: "Sukunimi"
+          = f.input :password, required: true, label: "Salasana", hint: ("vähintään #{@minimum_password_length} merkki pitkä!" if @minimum_password_length)
+          = f.input :password_confirmation, required: true, label: "Vahvista salasanasi"
+          = f.button :submit, "Rekisteröidy", class: "btn--primary"

@@ -1,9 +1,11 @@
-h2
-  | Forgot your password?
-= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-  .form-actions
-    = f.button :submit, "Send me reset password instructions"
-= render "devise/shared/links"
+.container.margin-1.margin-top
+  .row
+    .col-xs-12.col-m-offset-2.col-m-8.col-l-offset-3.col-l-6
+      h1.page-title Unohditko salasanasi?
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = f.error_notification
+        .child-margins-y-0-5.margin-0-5.margin-top
+          = f.input :email, required: true, autofocus: true, label: "Sähköposti"
+          = f.button :submit, "Lähetä minulle salasanan nollaamisohjeet", class: "btn--primary"
+      .margin-1.margin-top
+        = render "devise/shared/links"
