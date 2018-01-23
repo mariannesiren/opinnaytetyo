@@ -1,0 +1,38 @@
+.table {
+  thead th {
+    padding: 0.5rem;
+  }
+  tbody tr {
+    cursor: pointer;
+    border-top: 1px solid color(primary, lighten-1);
+
+    &:hover {
+      background-color: rgba(color(primary, darken-1), 0.2);
+    }
+
+    td {
+      padding: 0.5rem;
+    }
+  }
+  tbody tr td:first-child, thead tr th:first-child {
+    text-align: left;
+  }
+  tbody tr td:last-child, thead tr th:last-child {
+    text-align: right;
+  }
+}
+
+.table--contacts {
+  margin-top: 1rem;
+  thead tr th:last-child, tbody tr td:last-child {
+    text-align: left;
+  }
+  th {
+    font-weight: bold;
+  }
+
+  tbody tr:hover {
+    background: none;
+    cursor: default;
+  }
+}

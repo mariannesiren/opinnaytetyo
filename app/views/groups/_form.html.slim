@@ -1,0 +1,6 @@
+= simple_form_for [@group] do |f|
+  .child-margins-y-0-25
+    = f.input :name, required: true, autofocus: true, label: "Nimi:"
+    = f.association :users, collection: User.all, as: :check_boxes, label: "Käyttäjät", class: "margin-0-5 margin-top"
+  = button_tag(type: "submit", class: "btn btn--primary margin-0-5 margin-top") do
+      | Tallenna

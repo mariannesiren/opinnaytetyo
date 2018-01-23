@@ -1,0 +1,6 @@
+.container
+  .row
+    .col-xs-12.col-l-offset-2.col-l-8
+      h1.margin-0-5.margin-y Ryhmä
+      = render "form"
+      = link_to "Poista", group_path(@group), method: :delete, data: { confirm: "Haluatko varmasti poistaa ryhmän?" }, class: "btn btn--secondary margin-0-5 margin-top"

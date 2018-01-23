@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-xs-12
+      h1.page-title Ryhmäsi
+      .button.margin-0-5.margin-y
+        = link_to "Lisää uusi ryhmä", new_group_path, class: "btn btn--primary"
+      - if @groups.any?
+        table.table.margin-1.margin-top
+          thead
+            tr
+              th Nimi
+              th Jäsenet
+              th
+          tbody
+            - @groups.each do |group|
+              tr data-link="#{group_path(group)}"
+                td= group.name
+                - group.users.each do |user|
+                  td= user.first_name
+                td= link_to "Muokkaa", group_path(group), class: "btn btn--primary"
