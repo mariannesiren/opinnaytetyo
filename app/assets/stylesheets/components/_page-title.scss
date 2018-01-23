@@ -1,0 +1,6 @@
+.page-title {
+  color: color(secondary);
+  text-align: center;
+  @include type-setting(2);
+  margin-top: 1rem;
+}

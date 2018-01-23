@@ -1,0 +1,88 @@
+//
+// Borders
+
+.borders {
+  border-style: solid;
+  border-width: 1px;
+}
+.borders-dashed {
+  border-style: dashed;
+  border-width: 2px;
+}
+.borders-dotted {
+  border-style: dotted;
+  border-width: 1px;
+}
+
+.borders-y {
+  border-style: solid;
+  border-width: 1px 0;
+}
+.borders-x {
+  border-style: solid;
+  border-width: 0 1px;
+}
+
+.border-left {
+  border-width: 0 0 0 1px;
+  border-style: solid;
+}
+.border-top {
+  border-width: 1px 0 0 0;
+  border-style: solid;
+}
+.border-right {
+  border-width: 0 1px 0 0;
+  border-style: solid;
+}
+.border-bottom {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+
+.borders-round {
+  border-radius: 2rem;
+}
+
+//
+// Automatical borders around child elements
+.child-borders > *,
+.child-borders-x > *,
+.child-borders-y > * {
+  border-style: solid;
+  border-width: 0;
+}
+
+.child-borders {
+  border: 0 solid;
+  border-width: 1px 0 0 1px;
+}
+.child-borders > * + * {
+  border-width: 0 1px 1px 0;
+}
+
+.child-borders-x > * + * {
+  border-left-width: 1px;
+}
+.child-borders-y > * + * {
+  border-top-width: 1px;
+}
+
+//
+// Radius
+.border-radius,
+.border-radius-0-125 {
+  border-radius: 0.125rem;
+}
+.border-radius-0-25 {
+  border-radius: 0.25rem;
+}
+.border-radius-0-5 {
+  border-radius: 0.5rem;
+}
+.border-radius-rounded {
+  border-radius: 200px;
+}
+.border-radius-50 {
+  border-radius: 50%;
+}

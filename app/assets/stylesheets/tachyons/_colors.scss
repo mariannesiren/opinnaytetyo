@@ -1,0 +1,6 @@
+@include map-to-class($colors, color, ".color", "-");
+@include map-to-class($colors, background-color, ".bg", "-");
+@include map-to-class($colors, border-color, ".border-color", "-");
+@include map-to-class($colors, stroke, ".stroke", "-");
+@include map-to-class($colors, fill, ".fill", "-");
+@include map-to-class($colors, outline, ".outline", "-");

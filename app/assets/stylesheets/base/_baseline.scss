@@ -1,0 +1,9 @@
+//
+// Font size
+html {
+  font-size: 133%; /* Used if browser doesn't support calc() */
+  font-size: calc(1em + 0.3vw + 0.3vh + 0.2vmin);
+  @include mq(xl3) {
+    font-size: 1.73em;
+  }
+}

@@ -1,0 +1,246 @@
+//
+// Variables
+
+$fli-radius: 0.125rem;
+
+// Input / Textarea
+$fli-border-inactive: color(primary);
+$fli-border-focused: color(primary, darken-1);
+$fli-border-error: color(red);
+$fli-color: color(grey, darken-4);
+$fli-color-required: color(red);
+$fli-bg: color(white);
+$fli-box-shadow: none;
+
+// Label
+$fli-label-inactive: color(primary);
+$fli-label-value: color(primary);
+$fli-label-focused: color(grey, darken4);
+$fli-label-error: color(red);
+$fli-label-disabled: color(grey);
+
+// Error
+$fli-error-border: color(red);
+$fli-error-color: color(red);
+$fli-error-bg: color(white);
+
+// Hint
+$fli-hint-color: color(grey);
+$fli-hint-bg: color(grey, lighten-5);
+
+// Error
+$fli-error-border: color(red);
+$fli-error-color: color(red);
+$fli-error-bg: color(red, lighten-5);
+
+// Animation
+$fli-duration: $animation-short-time;
+$fli-easing: ease;
+
+// Sizing and position
+$fli-font-size: 16px;
+$fli-label-font-size-active: font-size(0-75);
+
+$fli-spacing-x: 0.5rem;
+$fli-label-top-position-active: $fli-spacing-x;
+$fli-spacing-bottom: 0.5rem;
+$fli-spacing-between: 0.25rem;
+$fli-spacing-top: $fli-label-font-size-active + $fli-label-top-position-active +
+  $fli-spacing-between;
+
+//
+// Base styles
+.floating-label-input {
+  display: block;
+  position: relative;
+  label {
+    display: block;
+    position: absolute;
+    left: $fli-spacing-x;
+
+    color: $fli-label-inactive;
+    font-size: $fli-font-size;
+    white-space: nowrap;
+    line-height: 1;
+
+    cursor: text;
+    pointer-events: none;
+    transition: transform $fli-duration $fli-easing,
+      top $fli-duration $fli-easing, font-size $fli-duration $fli-easing;
+  }
+  input,
+  textarea {
+    padding: $fli-spacing-top $fli-spacing-x $fli-spacing-bottom;
+
+    border: 1px solid $fli-border-inactive;
+    border-radius: $fli-radius;
+    box-shadow: $fli-box-shadow;
+
+    color: $fli-color;
+    font-size: $fli-font-size;
+
+    background-color: $fli-bg;
+
+    transition: border-color $fli-duration $fli-easing,
+      box-shadow $fli-duration $fli-easing;
+  }
+  // Has value - Focused - Has placeholder
+  &.floating-label-input--has-value,
+  &.floating-label-input--focused,
+  .input--has-placeholder & {
+    label {
+      font-size: $fli-label-font-size-active;
+    }
+  }
+  // Has value
+  &.floating-label-input--has-value {
+    label {
+      color: $fli-label-value;
+    }
+  }
+  // Focused
+  &.floating-label-input--focused {
+    label {
+      color: $fli-label-focused;
+    }
+    input,
+    textarea {
+      border-color: $fli-border-focused;
+    }
+  }
+  // Error state
+  .input--has-error & {
+    input,
+    textarea {
+      border-color: $fli-error-border;
+    }
+    &.floating-label-input--has-value label {
+      color: $fli-label-error;
+    }
+  }
+  // Has hint
+  .input--has-hint & {
+    input,
+    textarea {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  // Required symbol
+  .input--required & {
+    label:after {
+      content: " *";
+
+      color: $fli-color-required;
+    }
+  }
+  // Disabled
+  input:disabled + label,
+  textarea:disabled + label {
+    color: $fli-label-disabled;
+  }
+}
+
+//
+// Text inputs
+.floating-label-input--text {
+  label {
+    top: 50%;
+    left: $fli-spacing-x;
+    transform: translateY(-50%);
+    transform-origin: 0 0;
+
+    font-size: $fli-font-size;
+  }
+  input {
+    line-height: 1;
+  }
+  // Has value - Focused - Has placeholder
+  &.floating-label-input--has-value,
+  &.floating-label-input--focused,
+  .input--has-placeholder & {
+    label {
+      top: $fli-label-top-position-active;
+      transform: translateY(0%);
+    }
+  }
+}
+
+//
+// Textarea
+.floating-label-input--textarea {
+  label {
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    // add padding and background to cover the overflowing text.
+    padding-left: $fli-spacing-x;
+    padding-right: $fli-spacing-x;
+    padding-top: $fli-label-top-position-active;
+    padding-bottom: $fli-spacing-between;
+
+    box-shadow: $fli-box-shadow;
+    border-top-left-radius: $fli-radius;
+    border-top-right-radius: $fli-radius;
+
+    background-color: $fli-bg;
+  }
+  textarea {
+    line-height: 1.2;
+  }
+  &.floating-label-input--has-value,
+  &.floating-label-input--focused,
+  .input--has-placeholder & {
+    label {
+      // Doesn't move
+    }
+  }
+  .input--material & {
+    label {
+      top: 0;
+      left: 0;
+      right: 0;
+      padding-left: $fli-spacing-x;
+      padding-right: $fli-spacing-x;
+      padding-top: $fli-label-top-position-active;
+
+      box-shadow: none;
+
+      font-size: $fli-label-font-size-active;
+    }
+  }
+}
+
+//
+// Hint
+.input__hint {
+  position: relative;
+  display: block;
+  padding: 0.125rem 0.25rem;
+
+  border: 1px solid $fli-border-inactive;
+  border-bottom-right-radius: $fli-radius;
+  border-bottom-left-radius: $fli-radius;
+  border-top: none;
+
+  @include type-setting(0-75);
+  color: $fli-hint-color;
+
+  background-color: $fli-hint-bg;
+}
+//
+// Error
+.input__error {
+  display: block;
+  padding: 0.125rem 0.25rem;
+
+  border: 1px solid $fli-error-border;
+  border-bottom-right-radius: $fli-radius;
+  border-bottom-left-radius: $fli-radius;
+  border-top: none;
+
+  @include type-setting(0-75);
+  color: $fli-error-color;
+
+  background-color: $fli-error-bg;
+}

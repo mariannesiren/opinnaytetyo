@@ -1,0 +1,60 @@
+//
+// Media query mixin
+@mixin mq($point, $max: null) {
+  @if map-has-key($mq-points, $point) {
+    $point: map-get($mq-points, $point);
+    @if $max {
+      @media screen and (max-width: #{$point - 1}px) {
+        @content;
+      }
+    } @else {
+      @media screen and (min-width: #{$point}px) {
+        @content;
+      }
+    }
+  } @else {
+    @error "No such breakpoint: `#{$point}`.";
+  }
+}
+
+//
+// Map class mixin
+@mixin map-to-class($map, $property, $selector, $divider: "") {
+  $selector: if($selector == "" and &, &, $selector);
+
+  @each $key, $value in $map {
+    $suffix: if($key == "base", "", $divider + $key);
+    @at-root #{$selector}#{$suffix} {
+      @if type-of($value) == map {
+        @include map-to-class($value, $property, "", $divider) {
+          @content;
+        }
+      } @else {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+//
+// Get color value from map
+@function color($color, $tone: "base") {
+  @if type-of(map-get($colors, #{$color})) == map {
+    @return map-get(map-get($colors, #{$color}), $tone);
+  } @else {
+    @return map-get($colors, #{$color});
+  }
+}
+
+//
+// Get font-size from map
+@function font-size($key) {
+  @return map-get($type, $key);
+}
+
+//
+// Get font-size from map
+@mixin type-setting($key) {
+  font-size: map-get($type, $key);
+  line-height: map-get($line, $key);
+}

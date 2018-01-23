@@ -1,0 +1,16 @@
+html {
+  font-family: $sans;
+  color: color(gray, darken-3);
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  position: relative;
+  line-height: 1rem;
+  font-size: font-size(1);
+  font-weight: 400;
+}

@@ -1,0 +1,100 @@
+//
+$color-primary: #68BDEA;
+$color-secondary: #014c45;
+// Palette
+$colors: (
+"primary": (
+  lighten-5:      lighten($color-primary, 55%),
+  lighten-4:      lighten($color-primary, 45%),
+  lighten-3:      lighten($color-primary, 35%),
+  lighten-2:      lighten($color-primary, 25%),
+  lighten-1:      lighten($color-primary, 10%),
+  base:           $color-primary,
+  darken-1:       darken($color-primary, 10%),
+  darken-2:       darken($color-primary, 15%),
+  darken-3:       darken($color-primary, 25%),
+  darken-4:       darken($color-primary, 40%),
+  darken-5:       darken($color-primary, 50%)
+),
+
+"secondary": (
+  lighten-5:      lighten($color-secondary, 55%),
+  lighten-4:      lighten($color-secondary, 45%),
+  lighten-3:      lighten($color-secondary, 35%),
+  lighten-2:      lighten($color-secondary, 25%),
+  lighten-1:      lighten($color-secondary, 10%),
+  base:           $color-secondary,
+  darken-1:       darken($color-secondary, 10%),
+  darken-2:       darken($color-secondary, 15%),
+  darken-3:       darken($color-secondary, 25%),
+  darken-4:       darken($color-secondary, 40%),
+  darken-5:       darken($color-secondary, 50%)
+),
+"grey":
+  (
+    "lighten-5": #fafafa,
+    "lighten-4": #f5f5f5,
+    "lighten-3": #eeeeee,
+    "lighten-2": #e0e0e0,
+    "lighten-1": #bdbdbd,
+    "base": #9e9e9e,
+    "darken-1": #757575,
+    "darken-2": #616161,
+    "darken-3": #424242,
+    "darken-4": #212121
+  ),
+  "yellow": rgba(255, 218, 126, 100),
+  "orange": rgba(222, 152, 88, 100),
+  "black": hsl(0%, 0%, 0%),
+  "white": hsl(100%, 100%, 100%),
+  "transparent": transparent,
+  "none": none,
+  "inherit": inherit,
+  "currentcolor": currentcolor
+);
+
+//
+// Type
+$sans: 'ITC Franklin Gothic LT W01 Bk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$type: (
+  0-75: 0.55rem,
+  1: 0.7rem,
+  1-25: 1rem,
+  1-5: 1.25rem,
+  1-75: 1.5rem,
+  2: 1.8rem,
+  s-0-75: 0.5rem,
+  s-1: 0.65rem,
+  s-1-25: 0.9rem,
+  s-1-5: 1.15rem,
+  s-1-75: 1.4rem,
+  s-2: 1.7rem
+);
+
+$line: (
+  0-75: 0.75rem,
+  1: 1rem,
+  1-25: 1.25rem,
+  1-5: 1.5rem,
+  1-75: 1.75rem,
+  2: 2rem,
+  s-0-75: 0.75rem,
+  s-1: 1rem,
+  s-1-25: 1.25rem,
+  s-1-5: 1.5rem,
+  s-1-75: 1.75rem,
+  s-2: 2rem
+);
+
+//
+// Media query
+$mq-points: (xs: 320, s: 612, m: 768, l: 980, xl: 1200, xl2: 1420, xl3: 1600);
+
+$max-width: 1600px;
+
+//
+// Animation
+$animation-easing: cubic-bezier(0.236, 0, 0.236, 1);
+$animation-time: 200ms;
+$animation-short-time: $animation-time / 1.618;

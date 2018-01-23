@@ -1,0 +1,151 @@
+$select-radius: 0.125rem;
+
+// Normal state
+$select-border-base: color(border);
+$select-color-base: color(grey);
+$select-bg-base: color(white);
+$label-color-base: color(grey);
+
+// Focused state
+$select-border-focused: color(grey, darken-4);
+$select-color-focused: color(grey, darken-4);
+$label-color-focused: color(grey, darken-4);
+
+// Error state
+$select-border-error: color(red);
+$select-color-error: color(red);
+$label-color-error: color(red);
+
+// Disable state
+$select-border-disabled: color(border, lighten-1);
+$select-color-disabled: color(grey);
+$select-bg-disabled: color(grey, lighten-2);
+
+//Sizing
+$select-font-size: 16px;
+$select-label-font-size-active: font-size(0-75);
+
+$select-icon: "icon-chevron.svg";
+$select-icon-width: 1rem;
+$select-icon-offset: 0.5rem;
+
+$select-spacing-x: 0.5rem;
+$select-label-top-position-active: $select-spacing-x;
+$select-spacing-bottom: 0.5rem;
+$select-spacing-between: 0.25rem;
+$select-spacing-top: $select-label-font-size-active +
+  $select-label-top-position-active + $select-spacing-between;
+$select-spacing-right: $select-spacing-x + $select-icon-width +
+  $select-icon-offset;
+
+.floating-select {
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: $select-icon-offset;
+    width: $select-icon-width;
+    height: 100%;
+
+    background-image: image-url($select-icon);
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+  }
+  label {
+    display: block;
+    position: absolute;
+    top: $select-label-top-position-active;
+    left: $select-spacing-x;
+
+    font-size: $select-label-font-size-active;
+    line-height: 1;
+    color: $label-color-base;
+    white-space: nowrap;
+
+    pointer-events: none;
+  }
+  label + select {
+    padding: $select-spacing-top $select-spacing-x $select-spacing-bottom;
+    padding-right: $select-spacing-right;
+    line-height: 1;
+  }
+  select {
+    box-shadow: none;
+    border-radius: $select-radius;
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    padding: $select-spacing-bottom $select-spacing-x $select-spacing-bottom;
+    padding-right: $select-spacing-right;
+
+    border: 1px solid $select-border-base;
+
+    color: $select-color-base;
+    font-size: $select-font-size;
+    line-height: 1;
+
+    background-color: $select-bg-base;
+
+    // Disable default styling on ff
+    -moz-appearance: none;
+
+    // Disable outline on firefox
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+
+    // Disable default styling on webkit browsers
+    -webkit-appearance: none;
+
+    // Disable default arrow on IE 11+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:focus {
+      border-color: $select-border-focused;
+
+      color: $select-color-focused;
+    }
+    &:disabled {
+      border-color: $select-border-disabled;
+
+      color: $select-color-disabled;
+
+      background-color: $select-bg-disabled;
+    }
+  }
+  .input--has-error & {
+    select {
+      border-color: $select-border-error;
+    }
+  }
+  .input--no-borders & {
+    select {
+      border: none;
+    }
+  }
+}
+// IE 9 only
+@media all and (min-width: 0\0) and (min-resolution: 0.001dpcm) {
+  .select {
+    select {
+      padding-right: 0;
+    }
+
+    &:after,
+    &:before {
+      display: none;
+    }
+  }
+}
