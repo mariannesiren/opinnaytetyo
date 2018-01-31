@@ -14,7 +14,10 @@
           tbody
             - @groups.each do |group|
               tr data-link="#{group_path(group)}"
-                td= group.name
-                - group.users.each do |user|
-                  td= user.first_name
-                td= link_to "Muokkaa", group_path(group), class: "btn btn--primary"
+                td
+                  = link_to group.name, group_path(group)
+                td
+                  - group.users.each do |user|
+                    = link_to user.name, group_path(group)
+                    | &nbsp;
+                td= link_to "Muokkaa", edit_group_path(group), class: "btn btn--primary"
