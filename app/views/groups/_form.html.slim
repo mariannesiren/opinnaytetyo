@@ -2,7 +2,7 @@
   .child-margins-y-0-25
     = f.input :name, required: true, autofocus: true, label: "Nimi:"
     = f.association :users, collection: User.all, as: :check_boxes, label: "Käyttäjät", class: "margin-0-5 margin-top"
-  .input-field
+
     - if @group.attachments.any?
       .hidden.files
         - @group.attachments.each do |a|
@@ -12,7 +12,7 @@
             .dz-type= a.attachment.metadata["mime_type"]
             .dz-key= a.attachment.id
             - if a.persisted?
-              .dz-download-path= group_attachment_download_path(@group, a)
+              .dz-download-path= group_group_attachment_download_path(@group, a)
               input type="hidden" name="group[attachments_attributes][#{a.id}][id]" value=a.id
               input type="hidden" name="group[attachments_attributes][#{a.id}][attachment_data]" value=a.attachment_data
               input type="hidden" data-role="destroy" data-s3key=a.attachment.id name="group[attachments_attributes][#{a.id}][_destroy]" value="false"

@@ -1,0 +1,15 @@
+.dropzone { border: 1px solid color(gray, lighten-3); }
+.dropzone.disabled {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    background: hsla(0,0,100,0.7);
+    z-index: 30;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  cursor: not-allowed;
+}

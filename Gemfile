@@ -30,6 +30,7 @@ gem "jbuilder", "~> 2.5"
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 gem "slim"
+gem "jquery-rails"
 gem "simple_form"
 gem "devise"
 gem "shrine"
@@ -44,6 +45,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
+  gem "dotenv-rails"
 end
 
 group :development do

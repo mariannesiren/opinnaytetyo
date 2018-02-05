@@ -47,6 +47,9 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, user_ids: [])
+    params.require(:group).permit(
+      :name,
+      user_ids: [],
+      attachments_attributes: [:id, :attachment_data, :_destroy])
   end
 end
