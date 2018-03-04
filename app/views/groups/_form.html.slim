@@ -14,12 +14,12 @@
             - if a.persisted?
               .dz-download-path= group_group_attachment_download_path(@group, a)
               input type="hidden" name="group[attachments_attributes][#{a.id}][id]" value=a.id
-              input type="hidden" name="group[attachments_attributes][#{a.id}][attachment_data]" value=a.attachment_data
+              input type="hidden" name="group[attachments_attributes][#{a.id}][attachment]" value=a.attachment_data
               input type="hidden" data-role="destroy" data-s3key=a.attachment.id name="group[attachments_attributes][#{a.id}][_destroy]" value="false"
             - else
-              input type="hidden" name="group[attachments_attributes][#{DateTime.now.strftime("%Q")}][attachment_data]" value=a.attachment_data
+              input type="hidden" name="group[attachments_attributes][#{DateTime.now.strftime("%Q")}][attachment]" value=a.attachment_data
               input type="hidden" data-role="destroy" data-s3key=a.attachment.id name="group[attachments_attributes][#{DateTime.now.strftime("%Q")}][_destroy]" value="false"
-    .dropzone.multiple data-input-name="group[attachments_attributes][id][attachment_data]"
+    .dropzone.multiple data-input-name="group[attachments_attributes][id][attachment]"
       .dz-message data-dz-message=""
         span Lataa liite
   = button_tag(type: "submit", class: "btn btn--primary margin-0-5 margin-top") do

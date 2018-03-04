@@ -13,3 +13,4 @@ Shrine.storages = {
 }
 
 Shrine.plugin :presign_endpoint
+Shrine.plugin :activerecord

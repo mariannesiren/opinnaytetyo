@@ -50,6 +50,6 @@ class GroupsController < ApplicationController
     params.require(:group).permit(
       :name,
       user_ids: [],
-      attachments_attributes: [:id, :attachment_data, :_destroy])
+      attachments_attributes: [:id, :attachment, :_destroy])
   end
 end
