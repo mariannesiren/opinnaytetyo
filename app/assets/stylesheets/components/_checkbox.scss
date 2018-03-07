@@ -1,0 +1,33 @@
+.checkbox {
+  font-size: 1em;
+  font-weight: normal;
+  padding: 0.2em 0;
+  label {
+    line-height: 1em;
+  }
+  input {
+    margin-right: 0.3em;
+  }
+}
+
+.checkbox-flex {
+  display: flex;
+  align-items: center;
+}
+
+.check_boxes .checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.check_boxes:checked {
+  color: $black;
+}
+
+input[type='checkbox'] + label {
+  font-weight: normal;
+}
+
+input[type='checkbox']:checked + label {
+  color: $black;
+}

@@ -2,13 +2,33 @@ doctype html
 html
   head
     title
-      | App
+      | Opinnäytetyö
+    meta[content="width=device-width, initial-scale=1.0" name="viewport"]
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    - if user_signed_in?
-      = link_to "Kirjaudu ulos", destroy_user_session_path, method: :delete
-      = link_to "Ryhmät", groups_path
+    - if flash[:success]
+      .success
+        = success
+    - elsif flash[:notice]
+      .notice
+        = notice
+    - elsif flash[:alert]
+      .alert
+        = alert
 
-    = yield
+    .nav
+      = link_to root_url do
+        .nav-logo Opinnäytetyö
+      .nav__items-container
+        - if user_signed_in?
+          = link_to groups_path do
+            .nav__item Ryhmäsi
+          = link_to destroy_user_session_path, method: :delete do
+            .nav__item Kirjaudu ulos
+
+    .container
+      .row
+        .col-xs-12
+          = yield

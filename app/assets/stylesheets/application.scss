@@ -17,9 +17,11 @@
 @import "tachyons/grid";
 @import "tachyons/layout";
 @import "tachyons/spacing";
+@import "tachyons/typography";
 
 //Modules
 @import "modules/table";
+@import "modules/navigation";
 
 // Components
 @import "components/button";
@@ -27,6 +29,7 @@
 @import "components/floating-label-input";
 @import "components/floating-label-select";
 @import "components/page-title";
+@import "components/checkbox";
 
 @import "dropzone/dropzone";
 

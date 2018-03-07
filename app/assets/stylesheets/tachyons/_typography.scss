@@ -1,0 +1,107 @@
+//
+// Sizes
+.size-0-75 {
+  @include type-setting(0-75);
+}
+.size-1 {
+  @include type-setting(1);
+}
+.size-1-25 {
+  @include type-setting(1-25);
+}
+.size-1-5 {
+  @include type-setting(1-5);
+}
+.size-1-75 {
+  @include type-setting(1-75);
+}
+.size-2 {
+  @include type-setting(2);
+}
+
+//
+// Line-height overwrites
+.line-0-75 {
+  line-height: 0.75rem;
+}
+.line-1 {
+  line-height: 1rem;
+}
+.line-1-25 {
+  line-height: 1.25rem;
+}
+.line-1-5 {
+  line-height: 1.5rem;
+}
+.line-1-75 {
+  line-height: 1.75rem;
+}
+.line-2 {
+  line-height: 2rem;
+}
+
+//
+// Weights
+.weight-300 {
+  font-weight: 300;
+}
+.weight-400 {
+  font-weight: 400;
+}
+.weight-600,
+.bold,
+strong,
+b {
+  font-weight: 600;
+}
+
+//
+// Alignment
+.text-align-left {
+  text-align: left;
+}
+.text-align-center {
+  text-align: center;
+}
+.text-align-right {
+  text-align: right;
+}
+.vertical-align-middle {
+  vertical-align: middle;
+}
+.vertical-align-top {
+  vertical-align: top;
+}
+.vertical-align-bottom {
+  vertical-align: bottom;
+}
+.vertical-align-baseline {
+  vertical-align: baseline;
+}
+
+//
+// Styles
+.uppercase {
+  text-transform: uppercase;
+}
+.italic {
+  font-style: italic;
+}
+.underlined {
+  border-bottom: 1px solid;
+}
+
+//
+// Adjustment
+.nowrap {
+  white-space: nowrap;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}

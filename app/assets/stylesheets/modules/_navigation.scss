@@ -1,0 +1,87 @@
+$nav-height: 2rem;
+$nav-height-m: 2.5rem;
+$nav-h-spacing: 0.5rem;
+$nav-width: $max-width;
+$nav-logo-fill: color(white);
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 2rem;
+  background-image: image-url('fabric-dark.png');
+  background-color: color(primary);
+  color: color(white);
+  .nav__items-container {
+    display: flex;
+  }
+  .nav__item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0.5rem;
+    font-size: font-size(0-75);
+    min-width: 3.5rem;
+    font-family: 'True North Textures W01 Rg', 'True North Textures W01 Hv', "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    &:hover {
+      background-color: rgba(color(black), 0.075);
+    }
+
+  }
+  .nav__item--logo {
+    font-size: font-size(1-5);
+
+    &:hover {
+      background-color: color(primary);
+      background-image: image-url('fabric-dark.png');
+    }
+  }
+}
+
+.nav--admin {
+  background-color: color(secondary);
+
+  .nav__item:hover {
+    background-color: rgba(color(black), 0.075);
+  }
+  .nav__item--logo {
+    font-size: font-size(1);
+
+    &:hover {
+      background-color: color(secondary);
+    }
+  }
+}
+// Logo
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: $nav-height;
+  padding: 0.375rem;
+
+  color: color(white);
+  line-height: 1.1;
+  text-align: left;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    min-width: 3rem;
+  }
+  @include mq(m, max) {
+    height: $nav-height-m;
+  }
+  @include mq(xl3) {
+    padding-left: 0;
+  }
+  svg {
+    display: block;
+    width: 100%;
+    min-width: 3rem;
+    max-width: 3.25rem; // Safari fix
+    max-height: 100%; // Take all available height
+    fill: $nav-logo-fill;
+  }
+}
