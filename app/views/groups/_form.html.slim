@@ -14,7 +14,6 @@
             - if a.persisted?
               .dz-download-path= group_group_attachment_download_path(@group, a)
               input type="hidden" name="group[attachments_attributes][#{a.id}][id]" value=a.id
-              input type="hidden" name="group[attachments_attributes][#{a.id}][attachment]" value=a.attachment_data
               input type="hidden" data-role="destroy" data-s3key=a.attachment.id name="group[attachments_attributes][#{a.id}][_destroy]" value="false"
             - else
               input type="hidden" name="group[attachments_attributes][#{DateTime.now.strftime("%Q")}][attachment]" value=a.attachment_data
