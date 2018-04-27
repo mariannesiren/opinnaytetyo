@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
   private
 
   def group
-    @group ||= Group.find(params[:id])
+    @group ||= current_user.groups.find(params[:id])
   end
 
   def group_params
