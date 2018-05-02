@@ -16,7 +16,7 @@
               input type="hidden" name="group[attachments_attributes][#{a.id}][id]" value=a.id
               input type="hidden" data-role="destroy" data-s3key=a.attachment.id name="group[attachments_attributes][#{a.id}][_destroy]" value="false"
             - else
-              input type="hidden" name="group[attachments_attributes][#{DateTime.now.strftime("%Q")}][attachment]" value=a.attachment_data
+              input type="hidden" name="group[attachments_attributes][#{DateTime.now.strftime("%Q")}][attachment]" value=a.attachment_data.to_json
               input type="hidden" data-role="destroy" data-s3key=a.attachment.id name="group[attachments_attributes][#{DateTime.now.strftime("%Q")}][_destroy]" value="false"
     .dropzone.multiple data-input-name="group[attachments_attributes][id][attachment]"
       .dz-message data-dz-message=""
